@@ -1,0 +1,11 @@
+- name: Creates ssl directory
+  file: path=/etc/apache2/ssl state=directory
+
+- name: Create self signed Cert
+  command: openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.com" -keyout /etc/apache2/ssl/apache.key -out /etc/apache2/ssl/apache.crt
+
+- name: Enable SSL module for Apache
+  command: a2enmod ssl
+
+- name: Restart apache
+  service: name=apache2 state=restarted
