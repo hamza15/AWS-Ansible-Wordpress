@@ -1,0 +1,5 @@
+- name: Install PHP
+  apt: package={{ item }} state=installed force=yes
+  with_items:
+    - php5
+    - php5-mysql
