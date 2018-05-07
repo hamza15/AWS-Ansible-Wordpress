@@ -1,0 +1,7 @@
+env           : "test"
+aws_region    : "us-east-1"
+instance_type : "t2.micro"
+instance_count: 1
+ami           : "ami-f95ef58a"
+keypair       : "REAN"
+group_id      : "sg-3d3a0e59"
