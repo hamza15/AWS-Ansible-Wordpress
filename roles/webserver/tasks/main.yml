@@ -1,0 +1,11 @@
+- name: Install Apache
+  apt: name=apache2 state=latest force=yes
+
+- name: Install required modules
+  apt: package={{ item }} state=installed force=yes
+  with_items:
+    - libapache2-mod-auth-mysql
+    - libapache2-mod-php5
+
+- name: Restart Apache
+  service: name=apache2 state=restarted
