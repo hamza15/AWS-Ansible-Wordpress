@@ -1,14 +1,7 @@
-- name: Provision EC2 instance for LAMP stack
-  hosts: localhost
-  connection: local
-  gather_facts: False
-  roles:
-    - ec2
-
 - name: Configure web server and deploy wordpress
-  hosts: launched
+  hosts: wordpresshost
   become: True
-  remote_user: "{{ remote_user }}"
+  remote_user: "ubuntu"
   gather_facts: True
   roles:
     - common
