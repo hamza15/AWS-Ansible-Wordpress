@@ -1,0 +1,6 @@
+<VirtualHost _default_:80>
+    ServerName {{ inventory_hostname }}
+    DocumentRoot /var/www/wordpress
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
