@@ -1,0 +1,2 @@
+dependencies:
+  - { role: web_server }
