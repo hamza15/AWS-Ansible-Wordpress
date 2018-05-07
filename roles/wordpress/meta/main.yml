@@ -1,0 +1,4 @@
+dependencies:
+  - { role: database }
+  - { role: php }
+  - { role: web_server }
