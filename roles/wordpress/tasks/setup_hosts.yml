@@ -1,0 +1,11 @@
+- name: Copy default host onto
+  template: src=vhosts/default.conf.j2 dest=/etc/apache2/sites-available/{{ inventory_hostname }}.conf
+
+- name: Copy SSL default host onto
+  template: src=vhosts/default-ssl.conf.j2 dest=/etc/apache2/sites-available/{{ inventory_hostname }}-ssl.conf
+
+- name: Enable Vhosts
+  command: a2ensite {{ inventory_hostname }}.conf {{ inventory_hostname }}-ssl.conf
+
+- name: Restart apache
+  service: name=apache2 state=restarted
